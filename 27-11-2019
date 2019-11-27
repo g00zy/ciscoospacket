@@ -1,0 +1,101 @@
+ROUTER
+
+en
+conf t
+hostname RTA
+int g0/0 
+ip address 192.168.0.1 255.255.255.128
+desc LINK to SWITCH-A
+no shut
+int g0/1 
+ip address 192.168.0.129 255.255.255.192
+desc LINK to SWITCH-B
+no shut
+exit
+banner motd !
+##################
+# TURMA 42 #
+# ARC #
+################## !
+exit
+clock set 15:43:00 27 nov 2019
+conf t
+line console 0
+password lab4
+login
+line vty 0 15
+password lab4
+login
+transport input telnet
+logg sync
+exit
+enable secret sala2
+exit
+wr
+
+SWITCH-A
+
+en
+conf t
+hostname SWITCH-A
+ip default-gateway 192.168.0.0
+int vlan1
+ip address 192.168.0.2 255.255.255.128
+desc LINK to RTA 0/0
+no shut
+exit
+banner motd !
+##################
+# TURMA 42 #
+# ARC #
+################## !
+exit
+clock set 16:02:00 27 nov 2019
+conf t
+line console 0
+password lab4
+login
+line vty 0 15
+password lab4
+login
+transport input telnet
+logg sync
+exit
+enable secret sala2
+service password-encryption
+exit
+wr
+
+SWITCH-B
+
+en
+conf t
+hostname SWITCH-A
+ip default-gateway 192.168.0.128
+int vlan1
+ip address 192.168.0.130 255.255.255.192
+desc LINK to RTA 0/1
+no shut
+exit
+banner motd !
+##################
+# TURMA 42 #
+# ARC #
+################## !
+exit
+clock set 15:43:00 27 nov 2019
+conf t
+line console 0
+password lab4
+login
+line vty 0 15
+password lab4
+login
+transport input telnet
+logg sync
+exit
+enable secret sala2
+service password-encryption
+exit
+wr
+
