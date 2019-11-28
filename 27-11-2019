@@ -34,7 +34,7 @@ wr
 
 en
 conf t
-hostname SWITCH-A
+hostname SWITCH-B
 ip default-gateway 192.168.0.0
 int vlan1
 ip address 192.168.0.2 255.255.255.128
