@@ -1,5 +1,3 @@
-ROUTER
-
 en
 conf t
 hostname RTA
@@ -33,7 +31,6 @@ enable secret sala2
 exit
 wr
 
-SWITCH-A
 
 en
 conf t
@@ -66,7 +63,6 @@ service password-encryption
 exit
 wr
 
-SWITCH-B
 
 en
 conf t
@@ -98,4 +94,3 @@ enable secret sala2
 service password-encryption
 exit
 wr
-
